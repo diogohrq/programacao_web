@@ -174,3 +174,18 @@ body {
   padding-left: 4px;
 }
 
+.footer {
+  background-color: var(--clt-accent);
+  padding-block: 1rem;
+  text-align: center;
+  color: var(--clr-neutral-1);
+}
+
+.footer a {
+  color: inherit;
+}
+
+.footer a::after {
+  content: '\1f517';
+  padding-left: 4px;
+}
