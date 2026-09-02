@@ -16,7 +16,7 @@
     </header>
     <main class="main">
       <article class="main--article">
-        <h1 class="main--article__title">Protocolo HTTP</h1>
+        <h1 class="main--article__title" id="introducao">Protocolo HTTP</h1>
         <p class="main--article__text">
           HTTP (HyperText Transfer Protocol) é o protocolo de comunicação usado pela Web para troca de
           mensagens entre cliente (navegador) e servidor. É um protocolo da camada de aplicação, baseado no
@@ -24,7 +24,7 @@
         </p>
         <ul class="main--article__list">
           <li>
-            <strong>Stateless:</strong>HTTP é stateless (sem estado): cada requisição é independente — o servidor não guarda
+            <strong>Stateless:</strong> HTTP é stateless (sem estado): cada requisição é independente — o servidor não guarda
             memória de requisições anteriores por padrão.
           </li>
           <li>  
@@ -33,7 +33,7 @@
           </li>
         </ul>
 
-        <h2 class="main--article__title">Estrutura de uma requisição HTTP</h2>
+        <h2 class="main--article__title" id="estrutura_requisicao">Estrutura de uma requisição HTTP</h2>
         <p class="main--article__text">Toda requisição HTTP tem três partes:</p>
         <ul class="main--article__list">
           <li><strong>Linha de requisição:</strong> método + caminho (URL) + versão do protocolo.</li>
@@ -45,7 +45,7 @@
   User-Agent: Mozilla/5.0
   Accept: text/html</code></pre>
 
-        <h2 class="main--article__title">Principais métodos HTTP</h2>
+        <h2 class="main--article__title" id="metodos">Principais métodos HTTP</h2>
         <table class="main--article__table">
           <thead>
             <tr>
@@ -82,7 +82,7 @@
           </tbody>
         </table>
 
-        <h2 class="main--article__title">Estrutura de uma resposta HTTP</h2>
+        <h2 class="main--article__title" id="estrutura_resposta">Estrutura de uma resposta HTTP</h2>
         <ul class="main--article__list">
           <li><strong>Linha de status:</strong> versão do protocolo + código de status + texto descritivo.</li>
           <li><strong>Headers:</strong> metadados da resposta (tipo do conteúdo, tamanho, cache, etc.).</li>
@@ -93,7 +93,7 @@
   Content-Length: 1274
   &lt;html&gt;...&lt;/html&gt;</code></pre>
 
-        <h2 class="main--article__title">Códigos de status HTTP</h2>
+        <h2 class="main--article__title" id="status">Códigos de status HTTP</h2>
         <table class="main--article__table">
           <thead>
             <tr>
@@ -131,7 +131,7 @@
           </tbody>
         </table>
 
-        <h2 class="main--article__title">Headers comuns</h2>
+        <h2 class="main--article__title" id="headers">Headers comuns</h2>
         <table class="main--article__table">
           <thead>
             <tr>
@@ -167,7 +167,7 @@
           </tbody>
         </table>
 
-        <h2 class="main--article__title">HTTP é stateless — e a sessão do usuário?</h2>
+        <h2 class="main--article__title" id="stateless">HTTP é stateless — e a sessão do usuário?</h2>
         <p class="main--article__text">
           Como o HTTP não guarda memória entre requisições, aplicações web usam 
           mecanismos extras pra simular "sessão" (ex: manter o usuário logado):
@@ -179,22 +179,37 @@
         </ul>
         <p class="main--article__text">Isso vai aparecer com mais detalhe quando começarmos a mexer com autenticação em Flask.</p>
       
-        <h2 class="main--article__title">Evolução do protocolo (rapidamente)</h2>
+        <h2 class="main--article__title" id="evolucao">Evolução do protocolo</h2>
         <ul class="main--article__list">
           <li><strong>HTTP/1.1:</strong> versão mais usada historicamente; conexões podem ser reaproveitadas (keep-alive).</li>
           <li><strong>HTTP/2:</strong> multiplexação de requisições numa mesma conexão, mais rápido.</li>
           <li><strong>HTTP/3:</strong> roda sobre QUIC (UDP) em vez de TCP, ainda mais rápido em redes instáveis.</li>
         </ul>
 
-        <h2 class="main--article__title">E o HTTPS?</h2>
+        <h2 class="main--article__title" id="https">E o HTTPS?</h2>
         <p class="main--article__text">
           HTTPS é o HTTP rodando sobre uma camada de criptografia (TLS). O protocolo e as mensagens trocadas são
           as mesmas — a diferença é que o conteúdo fica protegido contra interceptação no caminho entre cliente e
           servidor. Hoje é o padrão esperado para qualquer site.
         </p>
       </article>
+
+    <aside class="aside">
+      <h3 class="aside--title">Conteúdos do artigo</h3>
+      <ul>
+        <li><a href="#introducao">Protocolo HTTP</a></li>
+        <li><a href="#estrutura_requisicao">Estrutura de uma requisição HTTP</a></li>
+        <li><a href="#metodos">Principais métodos HTTP</a></li>
+        <li><a href="#estrutura_resposta">Estrutura de uma resposta HTTP</a></li>
+        <li><a href="#status">Códigos de status HTTP</a></li>
+        <li><a href="#headers">Headers comuns</a></li>
+        <li><a href="#stateless">HTTP é stateless — e a sessão do usuário?</a></li>
+        <li><a href="#evolucao">Evolução do protocolo</a></li>
+        <li><a href="#https">E o HTTPS?</a></li>
+      </ul>
+    </aside>
+
     </main>
-    <aside></aside>
     <footer></footer>
   </body>
 </html>
