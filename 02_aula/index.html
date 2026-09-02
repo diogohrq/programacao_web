@@ -5,19 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono&display=swap" rel="stylesheet">
     <title>Blog do Diogo</title>
   </head>
   <body>
     <header class="header">
-      <a href="index.html" class="header-logo">🐧 Blog do Diogo</a>
+      <a href="index.html" class="header--logo">🐧 Blog do Diogo</a>
     </header>
-    <main></main>
+    <main class="main">
+      <article class="main--article">
+        <h1 class="main--article__title">Protocolo HTTP</h1>
+        <p class="main--article__text">
+          HTTP (HyperText Transfer Protocol) é o protocolo de comunicação usado pela Web para troca de
+          mensagens entre cliente (navegador) e servidor. É um protocolo da camada de aplicação, baseado no
+          modelo requisição-resposta: o cliente envia uma requisição, o servidor devolve uma resposta.
+        </p>
+        <ul class="main--article__list">
+          <li>
+            <strong>Stateless:</strong>HTTP é stateless (sem estado): cada requisição é independente — o servidor não guarda
+            memória de requisições anteriores por padrão.
+          </li>
+          <li>  
+            <strong>Camada de transporte:</strong> ele é executado sobre TCP (na maioria dos casos), que garante a entrega
+            confiável dos dados.
+          </li>
+        </ul>
+
+        <h2 class="main--article__title">Estrutura de uma requisição HTTP</h2>
+        <p class="main--article__text">Toda requisição HTTP tem três partes:</p>
+        <ul class="main--article__list">
+          <li><strong>Linha de requisição:</strong> método + caminho (URL) + versão do protocolo.</li>
+          <li><strong>Headers:</strong> metadados sobre a requisição (tipo de conteúdo aceito, autenticação, etc.).</li>
+          <li><strong>Corpo (opcional):</strong> dados enviados junto (comum em POST/PUT — ex: dados de um formulário).</li>
+        </ul>
+        <pre><code class="main--article__code">  GET /produtos/lista?categoria=livros HTTP/1.1
+  Host: www.escola.com.br
+  User-Agent: Mozilla/5.0
+  Accept: text/html</code></pre>
+
+        <h2 class="main--article__title">Principais métodos HTTP</h2>
+        <table class="main--article__table">
+          <thead>
+            <tr>
+              <th>Método</th>
+              <th>Uso típico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GET</td>
+              <td>Buscar/ler um recurso (não deve alterar dados no servidor).</td>
+            </tr>
+            <tr>
+              <td>POST</td>
+              <td>Criar um novo recurso (ex: enviar um formulário, cadastrar algo).</td>
+            </tr>
+            <tr>
+              <td>PUT</td>
+              <td>Atualizar um recurso por completo, substituindo o existente.</td>
+            </tr>
+            <tr>
+              <td>PATCH</td>
+              <td>Atualizar um recurso parcialmente.</td>
+            </tr>
+            <tr>
+              <td>DELETE</td>
+              <td>Remover um recurso.</td>
+            </tr>
+            <tr>
+              <td>HEAD</td>
+              <td>Como o GET, mas só pede os headers (sem corpo) — útil pra checar se um recurso existe.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+        <h2 class="main--article__title">Estrutura de uma resposta HTTP</h2>
+        <ul class="main--article__list">
+          <li><strong>Linha de status:</strong> versão do protocolo + código de status + texto descritivo.</li>
+          <li><strong>Headers:</strong> metadados da resposta (tipo do conteúdo, tamanho, cache, etc.).</li>
+          <li><strong>Corpo:</strong> o conteúdo retornado (HTML, JSON, imagem, etc.).</li>
+        </ul>
+        <pre><code class="main--article__code">  HTTP/1.1 200 OK
+  Content-Type: text/html; charset=utf-8
+  Content-Length: 1274
+  &lt;html&gt;...&lt;/html&gt;</code></pre>
+
+        <h2 class="main--article__title">Códigos de status HTTP</h2>
+        <table class="main--article__table">
+          <thead>
+            <tr>
+              <th>Faixa</th>
+              <th>Significado</th>
+              <th>Exemplos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1xx</td>
+              <td>Informativo</td>
+              <td>100 Continue</td>
+            </tr>
+            <tr>
+              <td>2xx</td>
+              <td>Sucesso</td>
+              <td>200 OK · 201 Created · 204 No Content</td>
+            </tr>
+            <tr>
+              <td>3xx</td>
+              <td>Redirecionamento</td>
+              <td>301 Moved Permanently · 302 Found · 304 Not Modified</td>
+            </tr>
+            <tr>
+              <td>4xx</td>
+              <td>Erro do cliente</td>
+              <td>400 Bad Request · 401 Unauthorized · 403 Forbidden · 404 Not Found</td>
+            </tr>
+            <tr>
+              <td>5xx</td>
+              <td>Erro do servidor</td>
+              <td>500 Internal Server Error · 502 Bad Gateway · 503 Service Unavailable</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="main--article__title">Headers comuns</h2>
+        <table class="main--article__table">
+          <thead>
+            <tr>
+              <th>Header</th>
+              <th>Pra que serve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Content-Type</td>
+              <td>Formato do conteúdo enviado/recebido (text/html, application/json...).</td>
+            </tr>
+            <tr>
+              <td>Authorization</td>
+              <td>Credenciais de autenticação (ex: token de acesso).</td>
+            </tr>
+            <tr>
+              <td>Cookie / Set-Cookie</td>
+              <td>Envio e definição de cookies entre cliente e servidor.</td>
+            </tr>
+            <tr>
+              <td>Cache-Control</td>
+              <td>Regras de cache (por quanto tempo guardar a resposta, etc.).</td>
+            </tr>
+            <tr>
+              <td>User-Agent</td>
+              <td>Identifica o navegador/cliente que fez a requisição.</td>
+            </tr>
+            <tr>
+              <td>Accept</td>
+              <td>Quais formatos de resposta o cliente aceita receber.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="main--article__title">HTTP é stateless — e a sessão do usuário?</h2>
+        <p class="main--article__text">
+          Como o HTTP não guarda memória entre requisições, aplicações web usam 
+          mecanismos extras pra simular "sessão" (ex: manter o usuário logado):
+        </p>
+        <ul class="main--article__list">
+          <li><strong>Cookies:</strong> um pequeno dado guardado no navegador e reenviado a cada requisição pro mesmo domínio.</li>
+          <li><strong>Sessão do servidor:</strong> o servidor guarda dados da sessão e associa a um ID enviado via cookie.</li>
+          <li><strong>Tokens (ex: JWT):</strong> um token que carrega as informações do usuário, sem precisar de estado no servidor (comum em APIs).</li>
+        </ul>
+        <p class="main--article__text">Isso vai aparecer com mais detalhe quando começarmos a mexer com autenticação em Flask.</p>
+      
+        <h2 class="main--article__title">Evolução do protocolo (rapidamente)</h2>
+        <ul class="main--article__list">
+          <li><strong>HTTP/1.1:</strong> versão mais usada historicamente; conexões podem ser reaproveitadas (keep-alive).</li>
+          <li><strong>HTTP/2:</strong> multiplexação de requisições numa mesma conexão, mais rápido.</li>
+          <li><strong>HTTP/3:</strong> roda sobre QUIC (UDP) em vez de TCP, ainda mais rápido em redes instáveis.</li>
+        </ul>
+
+        <h2 class="main--article__title">E o HTTPS?</h2>
+        <p class="main--article__text">
+          HTTPS é o HTTP rodando sobre uma camada de criptografia (TLS). O protocolo e as mensagens trocadas são
+          as mesmas — a diferença é que o conteúdo fica protegido contra interceptação no caminho entre cliente e
+          servidor. Hoje é o padrão esperado para qualquer site.
+        </p>
+      </article>
+    </main>
     <aside></aside>
     <footer></footer>
   </body>

@@ -46,14 +46,14 @@ h1, h2, h3, h4, h5, h6 {
   --clr-neutral-1: #EDF2F4;
   --clr-dark-1: #121212;
   --ff-normal: 'Inter', sans-serif;
-  --ff-serif: 'Arvo', serif;
+  --ff-serif: 'Playfair Display', serif;
   --ff-mono: 'Space Mono', monospace;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--clr-neutral-1);
-  font-family: var(--ff-normal)
+  font-family: var(--ff-normal);
 }
 
 .header {
@@ -62,10 +62,77 @@ body {
   background-color: var(--clt-accent);
 }
 
-.header-logo {
+.header--logo {
   text-decoration: none;
   color: var(--clr-neutral-1);
   font-family: 'Space Mono';
   font-size: 1.75rem;
   font-weight: 700;
 }
+
+.main--article {
+  width: calc(100vw - 4rem);
+  max-width: 46.875rem;
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+.main--article__title {
+  font-family: var(--ff-serif);
+  padding-block: .8rem;
+}
+
+.main--article__text {
+  padding-block: 1rem;
+}
+
+.main--article ul {
+  list-style-position: inside;
+  list-style-type: square;
+  padding-bottom: 1rem;
+}
+
+.main--article li {
+  padding-bottom: 5px;
+}
+
+.main--article pre {
+  background-color: var(--clr-secondary);
+  border-left: 6px solid var(--clr-dark-1);
+  color: var(--clr-neutral-1);
+  border-radius: 4px;
+  padding-block: .625rem;
+}
+
+.main--article code {
+  font-family: var(--ff-mono);
+}
+
+.main--article__table {
+  table-layout: fixed;
+  width: 100%;
+  margin: .625rem auto;
+  border-collapse: collapse;
+  border: 1px solid var(--clr-dark-1);
+}
+
+.main--article__table thead th {
+  padding-block: .8rem;
+}
+
+.main--article__table th,
+.main--article__table td {
+  padding-left: 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.main--article td {
+  padding-block: .8rem;
+}
+
+.main--article__table tbody tr:nth-child(odd) {
+  background-color: var(--clr-secondary);
+  color: var(--clr-neutral-1);
+}
+
